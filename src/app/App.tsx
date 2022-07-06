@@ -1,9 +1,14 @@
+import { ThemeProvider } from 'styled-components';
+import { theme } from './config/styles';
+
 function App() {
 
   return (
-    <div className="App">
-      app
-    </div>
+    <ThemeProvider theme={theme}>
+      <div>
+        app
+      </div>
+    </ThemeProvider>
   )
 }
 
