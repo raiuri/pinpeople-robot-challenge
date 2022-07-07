@@ -1,4 +1,4 @@
-import { useCallback, memo } from "react";
+import { useCallback, memo, ReactNode } from "react";
 import { Flex, Text } from '@react-yuki/ui';
 import CompassIcon from '@react-yuki/icons/lib/Compass';
 import { arrayFromInterger, getSquareSize } from "../../utils";
@@ -66,7 +66,7 @@ const Table = memo(() => {
             <Flex width={1} flexDirection="column" flex="1 1 auto">
                 <Flex width={1} position="relative" flexDirection="column">
                     {rows.map(renderRow)}
-                    <Robot />
+                    <Robot coordinate={null} rotateDeg={0} isPlaced={false} />
                 </Flex>
                 <Flex width={1}>{columns.map(renderCoordinateX)}</Flex>
             </Flex>

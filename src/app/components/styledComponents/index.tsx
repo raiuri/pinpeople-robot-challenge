@@ -1,7 +1,7 @@
 import React, { ReactNode, FunctionComponent, ReactElement } from 'react';
 import styled, { createGlobalStyle, css } from 'styled-components';
 import { globalStyles } from '../../config/styles';
-import { Flex } from '@react-yuki/ui';
+import { Flex, FlexProps } from '@react-yuki/ui';
 import { getSquareSize } from '../../utils';
 import { animated } from 'react-spring';
 
@@ -31,6 +31,10 @@ export const Square = styled(Flex)`
     width: ${getSquareSize()};
 
     ${heightByWidth()};
+`;
+
+export const CommandBlock = styled(Flex)<FlexProps>`
+    ${heightByWidth(70)}
 `;
 
 export const RobotContainer = styled(animated.div)`

@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { Spring } from 'react-spring/dist/react-spring.cjs'
+import { Spring } from 'react-spring/renderprops.cjs';
 import { RobotProps } from './types';
 import { usePrevious } from "@react-yuki/hooks";
 import { Coordinate } from "../../types";
@@ -26,7 +26,7 @@ const Robot: FunctionComponent<RobotProps> = ({ coordinate, isPlaced, rotateDeg 
         <Spring from={{ ...prevTransition }} to={{ ...currentTransition }}>
             {props => (
                 <RobotContainer style={props}>
-                    x
+                    <h1>X</h1>
                 </RobotContainer>
             )}
         </Spring>
