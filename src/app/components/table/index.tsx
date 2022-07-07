@@ -5,6 +5,7 @@ import { arrayFromInterger, getSquareSize } from "../../utils";
 import { TABLE_DIMENSION } from "../../config/constants";
 import { Square } from "../styledComponents";
 import { colors } from '../../config/styles';
+import Robot from '../robot';
 
 const Table = memo(() => {
 
@@ -59,20 +60,18 @@ const Table = memo(() => {
                     {rows.map(renderCoordinateY)}
                 </Flex>
                 <Flex alignItems="center" justifyContent="center" flex="none" height="60px">
-                    <CompassIcon viewBox="0 0 1000 1000" width={60} height={60} color={colors.gray[8]} />
+                    <CompassIcon viewBox="0 0 1000 1000" width={60} height={60} color={colors.black[1]} />
                 </Flex>
             </Flex>
             <Flex width={1} flexDirection="column" flex="1 1 auto">
                 <Flex width={1} position="relative" flexDirection="column">
                     {rows.map(renderRow)}
-                    {console.log(renderRow)}
+                    <Robot />
                 </Flex>
                 <Flex width={1}>{columns.map(renderCoordinateX)}</Flex>
             </Flex>
         </Flex>
     );
 });
-
-Table.displayName = 'Table';
 
 export default Table;

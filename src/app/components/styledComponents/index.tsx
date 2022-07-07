@@ -3,6 +3,7 @@ import styled, { createGlobalStyle, css } from 'styled-components';
 import { globalStyles } from '../../config/styles';
 import { Flex } from '@react-yuki/ui';
 import { getSquareSize } from '../../utils';
+import { animated } from 'react-spring';
 
 export const GlobalStyles = createGlobalStyle`${globalStyles}`;
 
@@ -30,4 +31,14 @@ export const Square = styled(Flex)`
     width: ${getSquareSize()};
 
     ${heightByWidth()};
+`;
+
+export const RobotContainer = styled(animated.div)`
+    position: absolute;
+    display: flex;
+    width: ${getSquareSize()};
+    align-items: center;
+    justify-content: center;
+
+    ${heightByWidth()}
 `;
