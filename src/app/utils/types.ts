@@ -1,0 +1,1 @@
+export type GetSquareSize = (type?: 'x' | 'y') => string;

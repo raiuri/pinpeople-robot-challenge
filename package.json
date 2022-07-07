@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-yuki/hooks": "0.0.43",
+    "@react-yuki/icons": "^0.0.34",
     "@react-yuki/ui": "0.0.44",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
