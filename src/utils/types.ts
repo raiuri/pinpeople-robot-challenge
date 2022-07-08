@@ -1,0 +1,1 @@
+export type SplitCommand = (command: string) => string[];

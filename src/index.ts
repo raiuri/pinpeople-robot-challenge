@@ -1,7 +1,10 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import { promptCommandsService } from './services/promptCommandsService';
 
 dotenv.config();
+
+promptCommandsService();
 
 const app: Express = express();
 const port = process.env.PORT;
