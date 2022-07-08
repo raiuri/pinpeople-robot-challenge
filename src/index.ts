@@ -1,10 +1,10 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
-import { promptCommandsService } from './services/promptCommandsService';
+import { startGameService } from './services/startGameService';
 
 dotenv.config();
 
-promptCommandsService();
+startGameService();
 
 const app: Express = express();
 const port = process.env.PORT;
