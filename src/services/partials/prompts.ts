@@ -29,7 +29,7 @@ export function afterPlaceRobot() {
       {
         type: 'input',
         name: 'commandsAfter',
-        message: 'type a valid command to place a robot on the table'
+        message: 'What should the robot do now?'
       },
     ]
   )

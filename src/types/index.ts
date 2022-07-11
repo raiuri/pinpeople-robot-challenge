@@ -5,5 +5,5 @@ export interface RobotState {
         x: string,
         y: string,
     },
-    facing: string
+    facing: string,
 }

@@ -11,7 +11,7 @@ export const preventBorderPass: PreventBorderPass = ({ coordinate }) => {
     const coordinateY = parseInt(coordinate.y);
 
     if (typeof coordinateX !== 'number') {
-        console.log('Error, the robot position X must be a number')
+        console.log('Error, the robot position X must be a number');
     }
 
     if (coordinateX < 0) {
@@ -23,7 +23,7 @@ export const preventBorderPass: PreventBorderPass = ({ coordinate }) => {
     }
 
     if (typeof coordinateY !== 'number') {
-        console.log('Error, the robot position X must be a number')
+        console.log('Error, the robot position X must be a number');
     }
 
     if (coordinateY < 0) {
@@ -48,8 +48,5 @@ export const robotMovePosition: RobotMovePosition = (prevState) => {
             } else {
                 return { ...prevState }
             }
-
     }
-
-    return { ...prevState }
 }
