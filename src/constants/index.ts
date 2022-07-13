@@ -1,2 +1,15 @@
-export const FACING = ['north', 'south', 'east', 'west'];
-export const TABLE_DIMENSION = 5;
+import { RobotState } from "../types";
+
+export const robotState: RobotState = {
+    id: 1,
+    startedGame: '',
+    coordinate: {
+      x: '',
+      y: ''
+    },
+    facing: '',
+    placed: false,
+    commandAfter: '',
+    splitedCommands: [],
+    commands: ''
+  }

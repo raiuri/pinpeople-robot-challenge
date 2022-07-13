@@ -1,17 +1,22 @@
-import { prompt, Prompt } from "enquirer";
+import { prompt } from "enquirer";
+import { response } from "express";
+import { RobotState } from '../../types'
 
-export function startGame(): Promise<Prompt> {
+export function newGame(): Promise<RobotState> {
   return prompt(
     {
       type: 'select',
-      name: 'startGame',
-      message: 'Do you like start a new game?',
+      name: 'startedGame',
+      message: 'Do you like start a new game? ',
       choices: ["YES", "NO"]
     },
   )
 }
 
-export function placeRobot(): Promise<Prompt> {
+// const question = await newGame();
+// const response = question;
+
+export function placeRobot(): Promise<{ commands: string }> {
   return prompt(
     [
       {
@@ -23,12 +28,12 @@ export function placeRobot(): Promise<Prompt> {
   )
 }
 
-export function afterPlaceRobot() {
+export function afterPlacedRobot(): Promise<RobotState> {
   return prompt(
     [
       {
         type: 'input',
-        name: 'commandsAfter',
+        name: 'commandAfter',
         message: 'What should the robot do now?'
       },
     ]

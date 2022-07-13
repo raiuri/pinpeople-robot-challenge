@@ -1,0 +1,17 @@
+{
+  "robotState": [
+    {
+      "id": 1,
+      "startedGame": "",
+      "coordinate": {
+        "x": "0",
+        "y": "0"
+      },
+      "facing": "south",
+      "placed": true,
+      "commandAfter": "",
+      "splitedCommands": [],
+      "commands": ""
+    }
+  ]
+}
