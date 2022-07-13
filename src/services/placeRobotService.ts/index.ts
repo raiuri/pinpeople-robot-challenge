@@ -3,40 +3,23 @@ import { splitCommand } from '../../utils';
 import axios from "axios";
 import { placeRobot } from "../partials/prompts";
 
-
 export const placeRobotService: GameStartService = async (prevState, restartGame) => {
 
-    placeRobot().then((state) => {
+
+    placeRobot().then(async (state) => {
 
         const splitedCommand = splitCommand(state.commands);
 
-        if (splitedCommand.length < 4 || splitedCommand.length > 4) {
-            restartGame();
-            return;
-        };
 
         const coordinateX = parseInt(splitedCommand[1]);
         const coordinateY = parseInt(splitedCommand[2]);
 
-        if (splitedCommand.length < 4) {
-            console.log('Invalid command, Please insert a valid command');
-            console.log('A valid example command is: place, 0, 0, north');
+        if (isNaN(coordinateX) || isNaN(coordinateY)) {
+            console.log('The coordinates must be a number');
+
             restartGame();
-        }
-        else if (splitedCommand[0] !== 'place') {
-            console.log('Invalid command, type a correct commando to continue the game');
-            console.log('A valid example command is: place, 0, 0, north diferente de place');
-            restartGame();
-        }
-        else if (coordinateX === NaN || coordinateY === NaN) {
-            console.log('Invalid command, coordenates must be a number of 0 at 4');
-            console.log('A valid example command is: place, 0, 2, SOUTH');
-            restartGame();
-        }
-        else {
+        } else {
             const facing = splitedCommand[3].toLowerCase();
-            const coordinateX = splitedCommand[1];
-            const coordinateY = splitedCommand[2];
             const placed = prevState.placed = true;
 
             const newState = {
@@ -52,9 +35,9 @@ export const placeRobotService: GameStartService = async (prevState, restartGame
             switch (facing) {
                 case 'north':
 
-                    axios.put('http://localhost:3000/robotState/1/', { ...newState })
-                        .then(resp => {
-                            console.log(resp.data);
+                    await axios.put('http://localhost:3000/robotState/1/', { ...newState })
+                        .then(() => {
+                            console.log(state.commands);
                         }).catch(error => console.log(error));
 
                     restartGame()
@@ -63,9 +46,9 @@ export const placeRobotService: GameStartService = async (prevState, restartGame
 
                 case 'south':
 
-                    axios.put('http://localhost:3000/robotState/1/', { ...newState })
-                        .then(resp => {
-                            console.log(resp.data);
+                    await axios.put('http://localhost:3000/robotState/1/', { ...newState })
+                        .then(() => {
+                            console.log(state.commands);
                         }).catch(error => console.log(error));
 
                     restartGame()
@@ -74,20 +57,20 @@ export const placeRobotService: GameStartService = async (prevState, restartGame
 
                 case 'east':
 
-                    axios.put('http://localhost:3000/robotState/1/', { ...newState })
-                        .then(resp => {
-                            console.log(resp.data);
+                    await axios.put('http://localhost:3000/robotState/1/', { ...newState })
+                        .then(() => {
+                            console.log(state.commands);
                         }).catch(error => console.log(error));
-                    
+
                     restartGame()
 
                     break;
 
                 case 'west':
 
-                    axios.put('http://localhost:3000/robotState/1/', { ...newState })
-                        .then(resp => {
-                            console.log(resp.data);
+                    await axios.put('http://localhost:3000/robotState/1/', { ...newState })
+                        .then(() => {
+                            console.log(state.commands);
                         }).catch(error => console.log(error));
 
                     restartGame()

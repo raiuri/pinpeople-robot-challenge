@@ -15,15 +15,12 @@ async function startGame() {
 
     case true:
       afterPlacedRobotService(robotState, startGame);
-
       break;
 
     case false:
-      
       placeRobotService(robotState, startGame);
-      
       break;
-    
+      
     default:
       console.log('Invalid initial robotState');
 

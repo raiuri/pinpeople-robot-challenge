@@ -1,4 +1,4 @@
-export type Coordinate = { coordinate: { x: string, y: string } };
+export type Coordinate = { x: string, y: string };
 export interface RobotState {
     id: 1,
     startedGame: string,
