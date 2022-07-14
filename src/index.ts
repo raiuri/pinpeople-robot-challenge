@@ -1,15 +1,14 @@
 import { RobotState } from './types';
 import { placeRobotService } from './services/placeRobotService.ts';
-import axios from 'axios';
 import { afterPlacedRobotService } from './services/afterPlacedRobotService';
 import { ROBOT_STATE } from './constants';
+import { getState } from './repository/getState';
 
 startGame();
 
 async function startGame() {
 
-  const request = await axios.get('http://localhost:3000/robotState/1');
-  const data: RobotState = request.data;
+  const { data } = await getState();
 
   switch (data.placed) {
 
@@ -20,7 +19,7 @@ async function startGame() {
     case false:
       placeRobotService(ROBOT_STATE, startGame);
       break;
-      
+
     default:
       console.log('Invalid initial robotState');
 

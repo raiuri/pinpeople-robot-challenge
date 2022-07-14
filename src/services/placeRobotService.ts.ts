@@ -4,6 +4,7 @@ import { placeRobot } from "../partials/prompts";
 import { TABLE_DIMENSION, DIRECTIONS } from "../constants";
 import axios from "axios";
 import { putState } from "../repository/putState";
+import { RobotState } from "../types";
 
 export const placeRobotService: Service = async (prevState, restartGame) => {
 
@@ -34,24 +35,28 @@ export const placeRobotService: Service = async (prevState, restartGame) => {
         console.log('coordinates cannot be greater than 4');
 
     } else {
+        const coordinateXstr = coordinateX.toString();
+        const coordinateYstr = coordinateX.toString();
+
         const facing = splitedCommand[3].toLowerCase().trim();
         const placed = prevState.placed = true;
 
-        const newState = {
+        const newState: RobotState = {
             ...prevState,
             placed,
             facing,
             coordinate: {
-                x: coordinateX,
-                y: coordinateY
+                x: coordinateXstr,
+                y: coordinateYstr
             }
         };
 
         const checkFacing = DIRECTIONS.find((direction) => { return direction === facing });
 
         if (checkFacing) {
-            putState({ ...newState });
             
+            putState(newState);
+
             restartGame()
         } else {
             console.log('invalid direction');
