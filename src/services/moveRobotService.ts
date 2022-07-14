@@ -1,5 +1,6 @@
 import { Service } from "./types";
 import axios from "axios";
+import { TABLE_DIMENSION } from "../constants";
 
 export const moveRobotService: Service = async (prevState, restartGame) => {
 
@@ -29,7 +30,7 @@ export const moveRobotService: Service = async (prevState, restartGame) => {
             break;
 
         case 'south':
-            if (coordinateY >= 4) {
+            if (coordinateY >= TABLE_DIMENSION) {
 
                 console.log('The robot cannot go over the edge of the table');
 
@@ -50,7 +51,7 @@ export const moveRobotService: Service = async (prevState, restartGame) => {
 
         case 'east':
 
-            if (coordinateX >= 4) {
+            if (coordinateX >= TABLE_DIMENSION) {
                 console.log('The robot cannot go over the edge of the table');
 
                 restartGame();

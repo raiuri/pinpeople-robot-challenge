@@ -1,6 +1,7 @@
 import { Service } from "./types";
 import { splitCommand } from '../utils';
 import { placeRobot } from "./partials/prompts";
+import { TABLE_DIMENSION } from "../constants";
 import axios from "axios";
 
 export const placeRobotService: Service = async (prevState, restartGame) => {
@@ -14,13 +15,15 @@ export const placeRobotService: Service = async (prevState, restartGame) => {
 
         if (isNaN(coordinateX) || isNaN(coordinateY)) {
             console.log('The coordinates must be a number');
+            
             restartGame();
 
         } else if (coordinateX < 0 || coordinateY < 0) {
             console.log('Coordinates cannot be less than 0');
+            
             restartGame();
 
-        } else if (coordinateX > 4 || coordinateY > 4) {
+        } else if (coordinateX > TABLE_DIMENSION || coordinateY > TABLE_DIMENSION) {
             console.log('coordinates cannot be greater than 4');
 
         } else {

@@ -1,7 +1,7 @@
 import { afterPlacedRobot } from "./partials/prompts";
 import axios from "axios";
 import { moveRobotService } from "./moveRobotService";
-import { robotState } from "../constants";
+import { ROBOT_STATE } from "../constants";
 import { Service } from "./types";
 
 export const afterPlacedRobotService: Service = (prevState, restartGame) => {
@@ -13,7 +13,7 @@ export const afterPlacedRobotService: Service = (prevState, restartGame) => {
             }
 
             case 'reset': {
-                await axios.put('http://localhost:3000/robotState/1', { ...robotState, placed: false });
+                await axios.put('http://localhost:3000/robotState/1', { ...ROBOT_STATE, placed: false });
                 restartGame();
                 break;
             }

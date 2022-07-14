@@ -1,5 +1,4 @@
 import { prompt } from "enquirer";
-import { response } from "express";
 import { RobotState } from '../../types'
 
 export function newGame(): Promise<RobotState> {
@@ -12,9 +11,6 @@ export function newGame(): Promise<RobotState> {
     },
   )
 }
-
-// const question = await newGame();
-// const response = question;
 
 export function placeRobot(): Promise<{ commands: string }> {
   return prompt(

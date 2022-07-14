@@ -2,7 +2,7 @@ import { RobotState } from './types';
 import { placeRobotService } from './services/placeRobotService.ts';
 import axios from 'axios';
 import { afterPlacedRobotService } from './services/afterPlacedRobotService';
-import { robotState } from './constants';
+import { ROBOT_STATE } from './constants';
 
 startGame();
 
@@ -18,7 +18,7 @@ async function startGame() {
       break;
 
     case false:
-      placeRobotService(robotState, startGame);
+      placeRobotService(ROBOT_STATE, startGame);
       break;
       
     default:
