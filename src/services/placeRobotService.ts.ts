@@ -3,6 +3,7 @@ import { splitCommand } from '../utils';
 import { placeRobot } from "../partials/prompts";
 import { TABLE_DIMENSION, DIRECTIONS } from "../constants";
 import axios from "axios";
+import { putState } from "../repository/putState";
 
 export const placeRobotService: Service = async (prevState, restartGame) => {
 
@@ -49,11 +50,8 @@ export const placeRobotService: Service = async (prevState, restartGame) => {
         const checkFacing = DIRECTIONS.find((direction) => { return direction === facing });
 
         if (checkFacing) {
-            await axios.put('http://localhost:3000/robotState/1/', { ...newState })
-                .then(() => {
-                    console.log(state.commands);
-                }).catch(error => console.log(error));
-
+            putState({ ...newState });
+            
             restartGame()
         } else {
             console.log('invalid direction');
