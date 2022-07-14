@@ -1,18 +1,7 @@
 import { prompt } from "enquirer";
 import { RobotState } from '../../types'
 
-export function newGame(): Promise<RobotState> {
-  return prompt(
-    {
-      type: 'select',
-      name: 'startedGame',
-      message: 'Do you like start a new game? ',
-      choices: ["YES", "NO"]
-    },
-  )
-}
-
-export function placeRobot(): Promise<{ commands: string }> {
+export function placeRobot(): Promise<RobotState> {
   return prompt(
     [
       {
