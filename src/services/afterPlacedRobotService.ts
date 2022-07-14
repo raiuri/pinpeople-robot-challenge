@@ -1,4 +1,4 @@
-import { afterPlacedRobot } from "./partials/prompts";
+import { afterPlacedRobot } from "../partials/prompts";
 import axios from "axios";
 import { moveRobotService } from "./moveRobotService";
 import { ROBOT_STATE } from "../constants";

@@ -3,11 +3,11 @@
     {
       "id": 1,
       "coordinate": {
-        "x": "",
-        "y": ""
+        "x": 0,
+        "y": 4
       },
-      "facing": "",
-      "placed": false,
+      "facing": "south",
+      "placed": true,
       "commands": "",
       "commandAfter": ""
     }

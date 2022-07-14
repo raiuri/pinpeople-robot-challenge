@@ -1,5 +1,5 @@
 import { prompt } from "enquirer";
-import { RobotState } from '../../types'
+import { RobotState } from '../types'
 
 export function placeRobot(): Promise<RobotState> {
   return prompt(
