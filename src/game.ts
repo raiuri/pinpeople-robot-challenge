@@ -14,7 +14,7 @@ async function startGame() {
   switch (data.placed) {
 
     case true:
-      afterPlacedRobotService(robotState, startGame);
+      afterPlacedRobotService(data, startGame);
       break;
 
     case false:

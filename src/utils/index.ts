@@ -11,8 +11,6 @@ export const cordinateToNumber = (coordinate: Coordinate) => {
     const coordinateX = coordinate.x.replace(/[^0-4]/g, 'string');
     const coordinateY = coordinate.y.replace(/[^0-4]/g, 'string');
 
-    console.log('CABRUNCO', coordinateX, coordinateY, 'PESTE');
-
     if (coordinateX === 'string' || coordinateY === 'string') {
         console.log('Coordinate X and Coordinate Y must be a number');
 

@@ -5,19 +5,24 @@ import { placeRobot } from "../partials/prompts";
 
 export const placeRobotService: GameStartService = async (prevState, restartGame) => {
 
-
     placeRobot().then(async (state) => {
 
         const splitedCommand = splitCommand(state.commands);
-
 
         const coordinateX = parseInt(splitedCommand[1]);
         const coordinateY = parseInt(splitedCommand[2]);
 
         if (isNaN(coordinateX) || isNaN(coordinateY)) {
             console.log('The coordinates must be a number');
-
             restartGame();
+
+        } else if (coordinateX < 0 || coordinateY < 0) {
+            console.log('Coordinates cannot be less than 0');
+            restartGame();
+
+        } else if (coordinateX > 4 || coordinateY > 4) {
+            console.log('coordinates cannot be greater than 4');
+
         } else {
             const facing = splitedCommand[3].toLowerCase();
             const placed = prevState.placed = true;
