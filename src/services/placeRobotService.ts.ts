@@ -13,14 +13,20 @@ export const placeRobotService: Service = async (prevState, restartGame) => {
         const coordinateX = parseInt(splitedCommand[1]);
         const coordinateY = parseInt(splitedCommand[2]);
 
-        if (isNaN(coordinateX) || isNaN(coordinateY)) {
+        if (splitedCommand[0] !== 'place') {
+            console.log('invalid command');
+            console.log('Valid command example is: place, 0, 0, south')
+
+            restartGame();
+
+        } else if (isNaN(coordinateX) || isNaN(coordinateY)) {
             console.log('The coordinates must be a number');
-            
+
             restartGame();
 
         } else if (coordinateX < 0 || coordinateY < 0) {
             console.log('Coordinates cannot be less than 0');
-            
+
             restartGame();
 
         } else if (coordinateX > TABLE_DIMENSION || coordinateY > TABLE_DIMENSION) {
@@ -88,6 +94,7 @@ export const placeRobotService: Service = async (prevState, restartGame) => {
                 default:
                     console.log('invalid direction');
                     console.log('Valide directions are, north | south | east | west');
+                    
                     restartGame();
             }
         }

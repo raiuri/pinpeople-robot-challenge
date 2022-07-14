@@ -17,12 +17,14 @@ export const moveRobotService: Service = async (prevState, restartGame) => {
                 restartGame();
 
             } else {
-                await axios.put('http://localhost:3000/robotState/1', {
+                const { data } = await axios.put('http://localhost:3000/robotState/1', {
                     ...prevState, coordinate: {
                         x: prevState.coordinate.x,
                         y: coordinateY - 1
                     }
                 })
+                
+                console.log(`Current robot state: place, ${data.coordinate.x}, ${data.coordinate.y}, ${data.facing}`);
 
                 restartGame();
             }
@@ -37,12 +39,14 @@ export const moveRobotService: Service = async (prevState, restartGame) => {
                 restartGame();
 
             } else {
-                await axios.put('http://localhost:3000/robotState/1', {
+                const { data } = await axios.put('http://localhost:3000/robotState/1', {
                     ...prevState, coordinate: {
                         x: prevState.coordinate.x,
                         y: coordinateY + 1
                     }
                 })
+
+                console.log(`Current robot state: place, ${data.coordinate.x}, ${data.coordinate.y}, ${data.facing}`);
 
                 restartGame();
             }
@@ -56,12 +60,14 @@ export const moveRobotService: Service = async (prevState, restartGame) => {
 
                 restartGame();
             } else {
-                await axios.put('http://localhost:3000/robotState/1', {
+                const { data } = await axios.put('http://localhost:3000/robotState/1', {
                     ...prevState, coordinate: {
                         x: coordinateX + 1,
                         y: prevState.coordinate.y
                     }
                 })
+
+                console.log(`Current robot state: place, ${data.coordinate.x}, ${data.coordinate.y}, ${data.facing}`);
 
                 restartGame();
             }
@@ -75,12 +81,14 @@ export const moveRobotService: Service = async (prevState, restartGame) => {
 
                 restartGame();
             } else {
-                await axios.put('http://localhost:3000/robotState/1', {
+                const { data } = await axios.put('http://localhost:3000/robotState/1', {
                     ...prevState, coordinate: {
                         x: coordinateX - 1,
                         y: prevState.coordinate.y
                     }
                 })
+
+                console.log(`Current robot state: place, ${data.coordinate.x}, ${data.coordinate.y}, ${data.facing}`);
 
                 restartGame();
             }
