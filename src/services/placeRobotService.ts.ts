@@ -1,9 +1,9 @@
-import { GameStartService } from "../types";
-import { splitCommand } from '../../utils';
+import { Service } from "./types";
+import { splitCommand } from '../utils';
+import { placeRobot } from "./partials/prompts";
 import axios from "axios";
-import { placeRobot } from "../partials/prompts";
 
-export const placeRobotService: GameStartService = async (prevState, restartGame) => {
+export const placeRobotService: Service = async (prevState, restartGame) => {
 
     placeRobot().then(async (state) => {
 

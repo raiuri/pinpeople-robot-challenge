@@ -1,10 +1,10 @@
-import { RobotState } from "../../types";
-import { afterPlacedRobot } from "../partials/prompts";
+import { afterPlacedRobot } from "./partials/prompts";
 import axios from "axios";
-import { moveRobotService } from "../moveRobotService";
-import { robotState } from "../../constants";
+import { moveRobotService } from "./moveRobotService";
+import { robotState } from "../constants";
+import { Service } from "./types";
 
-export const afterPlacedRobotService = (prevState: RobotState, restartGame: Function): void => {
+export const afterPlacedRobotService: Service = (prevState, restartGame) => {
     afterPlacedRobot().then(async (state) => {
         switch (state.commandAfter) {
             case 'move': {

@@ -1,7 +1,7 @@
-import { RobotState } from "../../types";
+import { Service } from "./types";
 import axios from "axios";
 
-export async function moveRobotService(prevState: RobotState, restartGame: Function): Promise<void> {
+export const moveRobotService: Service = async (prevState, restartGame) => {
 
     let coordinateX = parseInt(prevState.coordinate.x);
     let coordinateY = parseInt(prevState.coordinate.y);
