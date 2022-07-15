@@ -1,4 +1,4 @@
-import { placeRobotService } from './services/placeRobotService.ts';
+import { placeRobotService } from './services/placeRobotService';
 import { afterPlacedRobotService } from './services/afterPlacedRobotService';
 import { ROBOT_STATE } from './constants';
 import { getState } from './repository/getState';

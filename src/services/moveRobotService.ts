@@ -19,7 +19,7 @@ export const moveRobotService: Service = async (prevState, restartGame) => {
             } else {
 
                 const data = await putState({
-                    ...prevState, 
+                    ...prevState,
                     coordinate: {
                         x: prevState.coordinate.x,
                         y: (coordinateY - 1).toString()

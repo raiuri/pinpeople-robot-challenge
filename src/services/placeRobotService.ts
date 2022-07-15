@@ -48,7 +48,7 @@ export const placeRobotService: Service = async (prevState, restartGame) => {
                 x: coordinateXstr,
                 y: coordinateYstr
             },
-            commands: state.commands
+            report: state.commands
         };
 
         const checkFacing = DIRECTIONS.find((direction) => { return direction === facing });
