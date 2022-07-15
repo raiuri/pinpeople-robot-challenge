@@ -1,5 +1,4 @@
 import { afterPlacedRobot } from "../partials/prompts";
-import axios from "axios";
 import { moveRobotService } from "./moveRobotService";
 import { ROBOT_STATE, AFTER_PLACE_COMMANDS } from "../constants";
 import { Service } from "./types";

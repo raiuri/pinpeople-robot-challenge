@@ -2,7 +2,6 @@ import { Service } from "./types";
 import { splitCommand } from '../utils';
 import { placeRobot } from "../partials/prompts";
 import { TABLE_DIMENSION, DIRECTIONS } from "../constants";
-import axios from "axios";
 import { putState } from "../repository/putState";
 import { RobotState } from "../types";
 
@@ -54,7 +53,7 @@ export const placeRobotService: Service = async (prevState, restartGame) => {
         const checkFacing = DIRECTIONS.find((direction) => { return direction === facing });
 
         if (checkFacing) {
-            
+
             putState(newState);
 
             restartGame()

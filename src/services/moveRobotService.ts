@@ -1,5 +1,4 @@
 import { Service } from "./types";
-import axios from "axios";
 import { TABLE_DIMENSION } from "../constants";
 import { putState } from "../repository/putState";
 
