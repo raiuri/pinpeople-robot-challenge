@@ -6,7 +6,7 @@ export const BASE_URL = "http://localhost:3000/robotState/1";
 
 export const DIRECTIONS = ['north', 'south', 'east', 'west'];
 
-export const AFTER_PLACE_COMMANDS = { RESET: 'reset', MOVE: 'move', EXIT: 'exit' };
+export const AFTER_PLACE_COMMANDS = { RESET: 'reset', MOVE: 'move', EXIT: 'exit', REPORT: 'report' };
 
 export const ROBOT_STATE: RobotState = {
   id: 1,

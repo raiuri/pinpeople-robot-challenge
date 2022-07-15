@@ -3,12 +3,12 @@
     {
       "id": 1,
       "coordinate": {
-        "x": "",
-        "y": ""
+        "x": "4",
+        "y": "0"
       },
-      "facing": "",
-      "placed": false,
-      "commands": "",
+      "facing": "east",
+      "placed": true,
+      "commands": "place, 0, 0, east",
       "commandAfter": ""
     }
   ]

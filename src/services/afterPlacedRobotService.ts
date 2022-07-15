@@ -3,6 +3,7 @@ import { moveRobotService } from "./moveRobotService";
 import { ROBOT_STATE, AFTER_PLACE_COMMANDS } from "../constants";
 import { Service } from "./types";
 import { putState } from "../repository/putState";
+import { getState } from "../repository/getState";
 
 export const afterPlacedRobotService: Service = (prevState, restartGame) => {
     afterPlacedRobot().then(async (state) => {
@@ -10,6 +11,16 @@ export const afterPlacedRobotService: Service = (prevState, restartGame) => {
             
             case AFTER_PLACE_COMMANDS.MOVE: {
                 moveRobotService(prevState, restartGame);
+                break;
+            }
+
+            case AFTER_PLACE_COMMANDS.REPORT: {
+                const { data } = await getState();
+                const report = data.commands;
+                
+                console.log(report);
+                
+                restartGame();
                 break;
             }
 
