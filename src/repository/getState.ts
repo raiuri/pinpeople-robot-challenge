@@ -1,8 +1,14 @@
-import axios, { AxiosResponse } from "axios";
-import { RobotState } from "../types";
+import { BASE_URL } from "../constants";
+import axios from "axios";
 
-export const getState = async (): Promise<AxiosResponse<RobotState>> => {
-    const data = await axios.get('http://localhost:3000/robotState/1');
+export const getState = async (): Promise<any> => {
+    
+    try {
+        const data = await axios.get(BASE_URL);
 
-    return data;
+        return data;
+
+    } catch (error) {
+        throw error;
+    }
 }

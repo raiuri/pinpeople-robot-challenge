@@ -1,9 +1,15 @@
 import axios from "axios";
+import { BASE_URL } from "../constants";
 import { RobotState } from "../types";
 
-export const putState = async (state: RobotState):Promise<RobotState> => {
-    
-    const { data } = await axios.put('http://localhost:3000/robotState/1/', state );
+export const putState = async (state: RobotState): Promise<RobotState> => {
 
-    return data;
+    try {
+        const { data } = await axios.put(BASE_URL, state);
+
+        return data;
+        
+    } catch (error) {
+        throw error;
+    }
 }
