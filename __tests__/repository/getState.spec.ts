@@ -5,6 +5,8 @@ import { ROBOT_STATE } from '../../src/constants';
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
+const result = getState();
+
 describe("getState", () => {
     describe("when API call is successful", () => {
 
@@ -12,7 +14,7 @@ describe("getState", () => {
 
             mockedAxios.get.mockImplementationOnce(() => Promise.resolve(ROBOT_STATE));
 
-            expect(getState()).resolves.toEqual(ROBOT_STATE);
+            expect(result).resolves.toEqual(ROBOT_STATE);
         });
     });
 
@@ -21,7 +23,7 @@ describe("getState", () => {
 
             mockedAxios.get.mockImplementationOnce(() => Promise.reject(new Error('Network error')));
 
-            expect(getState()).rejects.toThrow(new Error('Network error'));
+            expect(result).rejects.toThrow(new Error('Network error'));
         });
     });
 });

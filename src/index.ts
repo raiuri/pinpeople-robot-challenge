@@ -1,10 +1,7 @@
-import dotenv from 'dotenv';
 import { placeRobotService } from './services/placeRobotService.ts';
 import { afterPlacedRobotService } from './services/afterPlacedRobotService';
 import { ROBOT_STATE } from './constants';
 import { getState } from './repository/getState';
-
-dotenv.config();
 
 startGame();
 
