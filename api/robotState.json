@@ -4,13 +4,13 @@
       "id": 1,
       "coordinate": {
         "x": "0",
-        "y": "0"
+        "y": "3"
       },
       "facing": "east",
       "placed": true,
       "commands": "",
       "commandAfter": "",
-      "report": "place, 0, 0, east"
+      "report": "left"
     }
   ]
 }
