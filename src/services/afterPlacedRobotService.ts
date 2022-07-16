@@ -72,7 +72,7 @@ export const afterPlacedRobotService: Service = (prevState, restartGame) => {
             }
 
             default: {
-                console.log('invalid command, Valid commands are: move | reset | exit');
+                console.log('invalid command, Valid commands are: move | left | right | reset | exit');
 
                 restartGame();
             }
